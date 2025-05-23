@@ -1,0 +1,20 @@
+python main.py \
+  --dataset_name CUB \
+  --architecture vgg16 \
+  --wsol_method cam \
+  --method cam \
+  --experiment_name vgg16_cam \
+  --wandb_name vgg16_cam \
+  --root /home/yoojinoh/beyond-softmax/experiment/cub \
+  --large_feature_map FALSE \
+  --epoch 50 \
+  --batch_size 32 \
+  --lr_decay_frequency 15 \
+  --workers 4 \
+  --gpus 2 \
+  --lr 0.00001268269 \
+  --weight_decay 5.00E-04 \
+  --model_structure vanilla \
+  --eval_only \
+  --eval_checkpoint_type last \
+  --project vgg16-cub-0 

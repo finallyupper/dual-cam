@@ -1,3 +1,4 @@
+# Sample command to run evaluation for the CUB dataset using VGG16 architecture with CAM method
 python main.py \
   --dataset_name CUB \
   --architecture vgg16 \

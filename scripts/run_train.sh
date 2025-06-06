@@ -588,6 +588,90 @@ python main.py \
   --unfreeze_layer fc2 \
   --project resnet50-cars-0 
 
+# 3-1. inceptionv3_cam
+python main.py \
+  --dataset_name CARS \
+  --architecture inception_v3 \
+  --wsol_method cam \
+  --method cam \
+  --experiment_name inceptionv3_cam \
+  --wandb_name inceptionv3_cam \
+  --root /content/drive/MyDrive/beyond-softmax-master/experiment/cars/ \
+  --large_feature_map TRUE \
+  --epoch 10 \
+  --batch_size 32 \
+  --lr_decay_frequency 15 \
+  --workers 4 \
+  --gpus 1 \
+  --lr 0.005678 \
+  --weight_decay 5.00E-04 \
+  --model_structure vanilla \
+  --project inceptionv3-cars-0
+
+# 3-2. inceptionv3_cam + ours
+python main.py \
+  --dataset_name CARS \
+  --architecture inception_v3 \
+  --wsol_method cam \
+  --method cam \
+  --experiment_name inceptionv3_cam_ours \
+  --wandb_name inceptionv3_cam_ours \
+  --root /content/drive/MyDrive/beyond-softmax-master/experiment/cars/ \
+  --large_feature_map TRUE \
+  --epoch 10 \
+  --batch_size 32 \
+  --lr_decay_frequency 15 \
+  --workers 4 \
+  --gpus 1 \
+  --lr 0.0001 \
+  --weight_decay 5.00E-04 \
+  --model_structure b2 \
+  --ft_ckpt /content/drive/MyDrive/beyond-softmax-master/experiment/cars/inceptionv3_cam/last_checkpoint.pth.tar \
+  --unfreeze_layer SPG_A4_2 \
+  --project inceptionv3-cars-0
+
+# 3-3. inceptionv3_gradcam
+python main.py \
+  --dataset_name CARS \
+  --architecture inception_v3 \
+  --wsol_method cam \
+  --method gradcam \
+  --experiment_name inceptionv3_gradcam \
+  --wandb_name inceptionv3_gradcam \
+  --root /content/drive/MyDrive/beyond-softmax-master/experiment/cars/ \
+  --large_feature_map FALSE \
+  --epoch 10 \
+  --batch_size 32 \
+  --lr_decay_frequency 15 \
+  --workers 4 \
+  --gpus 2 \
+  --lr 0.0005 \
+  --weight_decay 5.00E-04 \
+  --model_structure vanilla \
+  --project inceptionv3-cars-0
+
+# 3-4. inceptionv3_gradcam + ours
+python main.py \
+  --dataset_name CARS \
+  --architecture inception_v3 \
+  --wsol_method cam \
+  --method gradcam \
+  --experiment_name inceptionv3_gradcam_ours \
+  --wandb_name inceptionv3_gradcam_ours \
+  --root /content/drive/MyDrive/beyond-softmax-master/experiment/cars/ \
+  --large_feature_map FALSE \
+  --epoch 10 \
+  --batch_size 32 \
+  --lr_decay_frequency 15 \
+  --workers 4 \
+  --gpus 1 \
+  --lr 0.005 \
+  --weight_decay 5.00E-04 \
+  --model_structure b2 \
+  --ft_ckpt /content/drive/MyDrive/beyond-softmax-master/experiment/cars/inceptionv3_gradcam/last_checkpoint.pth.tar \
+  --unfreeze_layer fc2 \
+  --project inceptionv3-cars-0
+
 # -------------------------------------------------------------- #
 # OpenImages30K
 

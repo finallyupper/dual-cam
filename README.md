@@ -20,7 +20,7 @@ PyTorch implementation of ''Dual-CAM: Model-Agnostic Dual-Branch Sigmoid Framewo
 * Institution: Ewha Womans University (Dept. of Artificial Intelligence)
 
 <p align="center">
-    <img src="./asset/qual.jpg" width="550"/> <br />
+    <img src="./asset/wsol_qual_result.png" width="600"/> <br />
     <em> 
     </em>
 </p>
@@ -31,7 +31,7 @@ Class Activation Mapping (CAM) and its extensions have become indispensable tool
 ## ✨ Motivation <a name="3"></a> 
 
 <p align="center">
-    <img src="./asset/problem.jpg" width="550"/> <br />
+    <img src="./asset/problem.png" width="550"/> <br />
     <em> 
     </em>
 </p>
@@ -67,7 +67,7 @@ cd Dual-CAM
 ```
 
 #### Download datasets (ImageNet1K, CUB-200-2011, OpenImages30K, Stanford_Cars) then align with `metadata/&{DATASET_NAME}`.
-#### NOTE. We build our dual-branch sigmoid head in PyTorch, extending the WSOL evaluation codebase of [wsolevaluation](https://github.com/clovaai/wsolevaluation) and the [pytorch-grad-cam](https://github.com/jacobgil/pytorch-grad-cam) repository. Moreover, training settings for vanilla backbones are almost equivalent with [shared setting](https://docs.google.com/spreadsheets/d/1O4gu69FOOooPoTTtAEmFdfjs2K0EtFneYWQFk8rNqzw/edit?gid=0#gid=0)
+**NOTE** We build our dual-branch sigmoid head in PyTorch, extending the WSOL evaluation codebase of [wsolevaluation](https://github.com/clovaai/wsolevaluation) and the [pytorch-grad-cam](https://github.com/jacobgil/pytorch-grad-cam) repository. Moreover, training settings for vanilla backbones are almost equivalent with [shared setting](https://docs.google.com/spreadsheets/d/1O4gu69FOOooPoTTtAEmFdfjs2K0EtFneYWQFk8rNqzw/edit?gid=0#gid=0)
 ### Training <a name="63"></a> 
 
 ```bash

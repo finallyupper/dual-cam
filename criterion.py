@@ -24,7 +24,6 @@ class CrossEntropyLoss(_Loss):
             loss = F.nll_loss(
                 log_prob, labels, weight=self.weight, reduction=self.reduction)
 
-        #losses = {'loss': loss}
         return loss
 
 class BinaryCrossEntropyLoss(_Loss):
@@ -42,7 +41,7 @@ class BinaryCrossEntropyLoss(_Loss):
             print(f'[DEBUG][criterion.py] Positive weight is given as {float(num_classes - 1)}')
 
     def forward(self, preds, labels):        
-        labels_one_hot = F.one_hot(labels, num_classes=self.num_classes).float()  # Shape: (batch_size, num_classes)
+        labels_one_hot = F.one_hot(labels, num_classes=self.num_classes).float() 
 
         preds = preds / self.temp  
 
@@ -67,6 +66,5 @@ class BinaryCrossEntropyLoss(_Loss):
             elif self.reduction == 'sum':
                 loss = loss.sum()
 
-        #losses = {'loss': loss}
         return loss
     

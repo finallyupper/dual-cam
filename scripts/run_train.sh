@@ -390,6 +390,26 @@ python main.py \
   --loc_threshold 0.05
 
 # 3-2. inception_v3_cam + ours
+python main.py \
+  --dataset_name CUB \
+  --architecture inception_v3 \
+  --wsol_method cam \
+  --method cam \
+  --experiment_name inceptionv3_cam_ours \
+  --wandb_name inceptionv3_cam_ours \
+  --root /content/drive/MyDrive/beyond-softmax-master/experiment/cub/ \
+  --large_feature_map TRUE \
+  --epoch 50 \
+  --batch_size 32 \
+  --lr_decay_frequency 15 \
+  --workers 4 \
+  --gpus 2 \
+  --lr 0.0001 \
+  --weight_decay 5.00E-04 \
+  --model_structure b2 \
+  --ft_ckpt /content/drive/MyDrive/beyond-softmax-master/experiment/cub/inceptionv3_cam/last_checkpoint.pth.tar \
+  --unfreeze_layer SPG_A4_2 \
+  --project inceptionv3-cub-0
 
 # 3-3. inception_v3_gradcam
 python main.py \

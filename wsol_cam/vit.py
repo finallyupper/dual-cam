@@ -82,7 +82,7 @@ def add_prefix_to_state_dict(state_dict, prefix):
     new_state_dict = {}
     for k, v in state_dict.items():
         if k.startswith('head.') or k.startswith('head2.'):
-            new_state_dict[k] = v  # head는 prefix 없이 유지
+            new_state_dict[k] = v 
         else:
             new_state_dict[prefix + k] = v
     return new_state_dict

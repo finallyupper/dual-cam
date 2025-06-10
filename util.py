@@ -72,7 +72,6 @@ def string_contains_any(string, substring_list):
     return False
 
 
-#Add
 def convert_to_native(obj):
     if isinstance(obj, dict):
         return {k: convert_to_native(v) for k, v in obj.items()}
@@ -280,7 +279,7 @@ def save_concatenated_cam(blend_path1, blend_path2, save_path):
         img1 = cv2.resize(img1, (int(img1.shape[1] * target_height / img1.shape[0]), target_height))
         img2 = cv2.resize(img2, (int(img2.shape[1] * target_height / img2.shape[0]), target_height))
     
-    concat = np.concatenate([img1, img2], axis=1)  # 1행 2열
+    concat = np.concatenate([img1, img2], axis=1) 
     os.makedirs(os.path.dirname(save_path), exist_ok=True)
     cv2.imwrite(save_path, concat)
     print(f"✅ 저장됨: {save_path}")
@@ -332,7 +331,6 @@ def save_selected_feature_maps_by_weight(feature_map, cam_weights, save_dir='./m
         fmap = feature_map[b]            # [C, H, W]
         weights = cam_weights[b]         # [C]
 
-        # 조건 마스크
         mask_neg = (weights > -0.05) & (weights < 0.0)
         mask_pos = (weights > 0.0) & (weights < 0.05)
 
@@ -358,7 +356,6 @@ def save_selected_feature_maps_by_weight(feature_map, cam_weights, save_dir='./m
             w = weights[ch].item()
             fmap_ch = fmap[ch]
 
-            # (1) w * fmap 저장
             fmap_weighted = fmap_ch * w
             fmap_np = fmap_weighted.detach().cpu().numpy()
             fmap_np -= fmap_np.min()
@@ -370,7 +367,6 @@ def save_selected_feature_maps_by_weight(feature_map, cam_weights, save_dir='./m
             save_path = os.path.join(img_dir, f"{prefix}_{b}_idx{i}_ch{ch}_w{w:+.3f}.png")
             cv2.imwrite(save_path, heatmap)
 
-            # (2) (w+0.05) * fmap 저장
             w_plus = w + 0.05
             fmap_weighted_plus = fmap_ch * w_plus
             fmap_np_plus = fmap_weighted_plus.detach().cpu().numpy()
@@ -445,20 +441,18 @@ def save_cam_with_image_and_bbox(image, cam, gt_bbox, image_id, save_path, loc_t
         x, y, w, h = cv2.boundingRect(max_contour)
         pred_bbox = [x, y, x + w, y + h]
 
-        # # ▶️ 전체 이미지에 너무 가까운 bbox는 제외 (95% 이상)
         # bbox_area = w * h
         # image_area = W * H
         # if bbox_area / image_area >= 0.8:
-        #     return  # ❌ 저장하지 않음: 거의 전체 이미지 덮음
+        #     return  
 
-        # # ▶️ IoU 검사
         # if gt_bbox is not None:
         #     gt_bbox = list(map(int, gt_bbox))
         #     iou = compute_iou(pred_bbox, gt_bbox)
         #     if iou > 0.8:
-        #         return  # ❌ 저장하지 않음: IoU 기준 미달
+        #         return  
 
-        # ✅ Draw predicted bbox (green)
+        # Draw predicted bbox (green)
         cv2.rectangle(overlay, (x, y), (x + w, y + h), color=(0, 255, 0), thickness=2)
 
     # 5. Draw GT bbox (red)
@@ -519,7 +513,7 @@ def save_cam_with_image(image, cam, image_id, save_path,alpha=0.5):
 
     # 1. Unnormalize the image
     img = image.detach().cpu()
-    img = TF.normalize(img, [-0.485/0.229, -0.456/0.224, -0.406/0.225], [1/0.229, 1/0.224, 1/0.225])  # Undo ImageNet normalization
+    img = TF.normalize(img, [-0.485/0.229, -0.456/0.224, -0.406/0.225], [1/0.229, 1/0.224, 1/0.225]) 
     img = TF.to_pil_image(img)
     img = np.array(img)  # Convert to (H, W, 3) RGB uint8
 

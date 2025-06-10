@@ -72,7 +72,6 @@ class FinerCAM:
             if 'hpu' in str(self.base_cam.device):
                 self.base_cam.__htcore.mark_step()
 
-        #CHECK(Yooijn)
         cam_per_layer = self.base_cam.compute_cam_per_layer(input_tensor, targets, eigen_smooth, )
                                                             #truncate_weight) 
         return self.base_cam.aggregate_multi_layers(cam_per_layer)

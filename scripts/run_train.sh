@@ -374,7 +374,7 @@ python main.py \
   --method cam \
   --experiment_name inception_v3_cam \
   --wandb_name inception_v3_cam \
-  --root /data/wsol/bmvc2025/cub/inceptionv3 \
+  --root /data/wsol/cub/inceptionv3 \
   --large_feature_map TRUE \
   --epoch 50 \
   --batch_size 32 \
@@ -419,7 +419,7 @@ python main.py \
   --method gradcam \
   --experiment_name inceptionv3_gradcam \
   --wandb_name inceptionv3_gradcam \
-  --root /data/wsol/bmvc2025/cub/inceptionv3 \
+  --root /data/wsol/cub/inceptionv3 \
   --large_feature_map TRUE \
   --epoch 50 \
   --batch_size 64 \

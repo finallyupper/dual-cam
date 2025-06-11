@@ -15,7 +15,7 @@ PyTorch implementation of ''Dual-CAM: Model-Agnostic Dual-Branch Sigmoid Framewo
  8. [📊 Experimental Results](#7)
 
 ## 📎 Paper Link <a name="1"></a> 
-> Dual-CAM: Model-Agnostic Dual-Branch Sigmoid Framework for Precise Class Activation Maps (Living Lab 2025) ([link](TODO))
+> Dual-CAM: Model-Agnostic Dual-Branch Sigmoid Framework for Precise Class Activation Maps (Living Lab 2025) ([link](https://drive.google.com/file/d/1xBspbElRnbU_TfkJ27H1_BDjXhTLVF7P/view?usp=sharing))
 * Authors: Yoojin Oh, Hyewon Joo, Eunhyun Ryu 
 * Institution: Ewha Womans University (Dept. of Artificial Intelligence)
 
